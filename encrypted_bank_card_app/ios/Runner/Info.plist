@@ -47,7 +47,15 @@
 			</array>
 		</dict>
 	</dict>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Authenticate to access your encrypted bank cards</string>
+	<key>NFCReaderUsageDescription</key>
+	<string>Scan NFC tags for educational purposes</string>
+	<key>com.apple.developer.nfc.readersession.formats</key>
+	<array>
+		<string>NDEF</string>
+		<string>TAG</string>
+	</array>
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
