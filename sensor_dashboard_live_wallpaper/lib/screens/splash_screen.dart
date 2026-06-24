@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sensor_dashboard_live_wallpaper/constants/app_assets.dart';
 import 'package:sensor_dashboard_live_wallpaper/screens/biometric_lock_screen.dart';
 import 'package:sensor_dashboard_live_wallpaper/services/permission_service.dart';
 import 'package:sensor_dashboard_live_wallpaper/services/sensor_service.dart';
+import 'package:sensor_dashboard_live_wallpaper/widgets/app_logo.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -22,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen>
       vsync: this,
       duration: const Duration(milliseconds: 1200),
     )..repeat(reverse: true);
-    _pulseAnimation = Tween<double>(begin: 0.85, end: 1.0).animate(
+    _pulseAnimation = Tween<double>(begin: 0.92, end: 1.0).animate(
       CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut),
     );
     _initialize();
@@ -57,83 +59,83 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF667EEA),
-              Color(0xFF764BA2),
-              Color(0xFF1B263B),
-            ],
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            AppAssets.splash,
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+            filterQuality: FilterQuality.high,
           ),
-        ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ScaleTransition(
-                scale: _pulseAnimation,
-                child: Container(
-                  width: 120,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.2),
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.2),
-                        blurRadius: 20,
-                        offset: const Offset(0, 10),
-                      ),
-                    ],
-                  ),
-                  child: const Icon(
-                    Icons.sensors,
-                    size: 64,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 32),
-              const Text(
-                'Sensor Dashboard',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  letterSpacing: 1.2,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Live Wallpaper Edition',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.white.withValues(alpha: 0.7),
-                ),
-              ),
-              const SizedBox(height: 48),
-              SizedBox(
-                width: 40,
-                height: 40,
-                child: CircularProgressIndicator(
-                  strokeWidth: 3,
-                  color: Colors.white.withValues(alpha: 0.9),
-                ),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                'Initializing sensors…',
-                style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.6),
-                  fontSize: 13,
-                ),
-              ),
-            ],
+          Container(
+            color: Colors.black.withValues(alpha: 0.15),
           ),
-        ),
+          SafeArea(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ScaleTransition(
+                    scale: _pulseAnimation,
+                    child: const AppLogo(
+                      size: AppAssetSizes.splashLogo,
+                      showShadow: true,
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+                  const Text(
+                    'Sensor Dashboard',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 1.2,
+                      shadows: [
+                        Shadow(
+                          blurRadius: 8,
+                          color: Colors.black38,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Live Wallpaper Edition',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white.withValues(alpha: 0.85),
+                      shadows: const [
+                        Shadow(
+                          blurRadius: 6,
+                          color: Colors.black26,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 48),
+                  SizedBox(
+                    width: 40,
+                    height: 40,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 3,
+                      color: Colors.white.withValues(alpha: 0.9),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Initializing sensors…',
+                    style: TextStyle(
+                      color: Colors.white.withValues(alpha: 0.75),
+                      fontSize: 13,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

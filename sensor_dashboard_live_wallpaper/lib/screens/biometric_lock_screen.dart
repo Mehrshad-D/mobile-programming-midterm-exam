@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sensor_dashboard_live_wallpaper/constants/app_assets.dart';
 import 'package:sensor_dashboard_live_wallpaper/screens/dashboard_screen.dart';
 import 'package:sensor_dashboard_live_wallpaper/services/biometric_service.dart';
+import 'package:sensor_dashboard_live_wallpaper/widgets/app_logo.dart';
 import 'package:sensor_dashboard_live_wallpaper/widgets/live_background.dart';
 
 class BiometricLockScreen extends StatefulWidget {
@@ -83,26 +85,9 @@ class _BiometricLockScreenState extends State<BiometricLockScreen>
                         curve: Curves.easeInOut,
                       ),
                     ),
-                    child: Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: theme.colorScheme.primaryContainer
-                            .withValues(alpha: 0.8),
-                        boxShadow: [
-                          BoxShadow(
-                            color: theme.colorScheme.primary
-                                .withValues(alpha: 0.3),
-                            blurRadius: 20,
-                          ),
-                        ],
-                      ),
-                      child: Icon(
-                        Icons.fingerprint,
-                        size: 56,
-                        color: theme.colorScheme.onPrimaryContainer,
-                      ),
+                    child: const AppLogo(
+                      size: AppAssetSizes.lockLogo,
+                      showShadow: true,
                     ),
                   ),
                   const SizedBox(height: 32),

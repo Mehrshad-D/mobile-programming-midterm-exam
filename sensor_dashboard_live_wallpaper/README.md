@@ -35,6 +35,8 @@ Splash → Biometric Lock → Dashboard → Detail Screens
 ```
 lib/
 ├── main.dart
+├── constants/
+│   └── app_assets.dart           # Asset paths and display sizes
 ├── models/
 │   └── sensor_info.dart
 ├── services/
@@ -44,6 +46,7 @@ lib/
 │   ├── permission_service.dart
 │   └── theme_service.dart
 ├── widgets/
+│   ├── app_logo.dart             # Reusable logo widget
 │   ├── live_background.dart      # Parallax wallpaper widget
 │   └── sensor_card.dart          # Animated dashboard card
 └── screens/
@@ -56,6 +59,12 @@ lib/
     ├── step_counter_screen.dart
     ├── nfc_screen.dart
     └── sensor_details_screen.dart
+
+assets/
+├── logo/
+│   └── logo.png                  # 512×512 app logo
+└── splash/
+    └── splash.png                # 1080×1920 splash background
 ```
 
 ## Requirements
