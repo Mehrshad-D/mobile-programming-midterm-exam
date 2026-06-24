@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.sensor_dashboard_live_wallpaper"
+    namespace = "ir.sharifmp.sensor_dashboard_live_wallpaper.s401105912"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -19,7 +19,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.sensor_dashboard_live_wallpaper"
+        applicationId = "ir.sharifmp.sensor_dashboard_live_wallpaper.s401105912"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
