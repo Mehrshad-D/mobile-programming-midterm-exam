@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../services/otp_service.dart';
+import '../widgets/app_logo.dart';
 import 'otp_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -73,12 +74,8 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Icon(
-                    Icons.lock_outline_rounded,
-                    size: 64,
-                    color: colorScheme.primary,
-                  ),
-                  const SizedBox(height: 16),
+                  const Center(child: AppLogo(height: 80)),
+                  const SizedBox(height: 20),
                   Text(
                     'Welcome Back',
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(

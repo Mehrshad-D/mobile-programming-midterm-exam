@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../services/security_service.dart';
+import '../widgets/app_logo.dart';
 import 'login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -75,11 +76,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.security_rounded,
-                  size: 88,
-                  color: colorScheme.onErrorContainer,
-                ),
+                const AppLogo(height: 80),
                 const SizedBox(height: 24),
                 Text(
                   'محیط ناامن',
@@ -112,66 +109,27 @@ class _SplashScreenState extends State<SplashScreen> {
     }
 
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              colorScheme.primary,
-              colorScheme.primaryContainer,
-            ],
-          ),
-        ),
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 110,
-                height: 110,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.15),
-                      blurRadius: 24,
-                      offset: const Offset(0, 8),
-                    ),
-                  ],
-                ),
-                child: Icon(
-                  Icons.account_balance_rounded,
-                  size: 56,
-                  color: colorScheme.primary,
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          const SplashImage(),
+          if (_isLoading)
+            const Positioned(
+              left: 0,
+              right: 0,
+              bottom: 48,
+              child: Center(
+                child: SizedBox(
+                  width: 32,
+                  height: 32,
+                  child: CircularProgressIndicator(
+                    color: Colors.white,
+                    strokeWidth: 3,
+                  ),
                 ),
               ),
-              const SizedBox(height: 24),
-              Text(
-                'Secure Banking App',
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Educational Security Demo',
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Colors.white.withValues(alpha: 0.85),
-                    ),
-              ),
-              const SizedBox(height: 48),
-              if (_isLoading)
-                const CircularProgressIndicator(
-                  color: Colors.white,
-                  strokeWidth: 3,
-                ),
-            ],
-          ),
-        ),
+            ),
+        ],
       ),
     );
   }
