@@ -1,0 +1,33 @@
+name: sensor_dashboard_live_wallpaper
+description: Sensor Dashboard with Live Parallax Wallpaper
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  local_auth: ^2.3.0
+  sensors_plus: ^6.1.1
+  flutter_compass: ^0.8.1
+  geolocator: ^13.0.2
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
+  permission_handler: ^11.3.1
+  light: ^4.1.0
+  pedometer: ^4.0.2
+  nfc_manager: ^3.5.0
+  proximity_sensor: ^1.0.2
+  shake: ^3.0.0
+  device_info_plus: ^11.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
