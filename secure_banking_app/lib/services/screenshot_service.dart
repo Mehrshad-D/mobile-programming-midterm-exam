@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
+import '../utils/app_config.dart';
 import '../utils/platform_helper.dart';
 import 'security_service.dart';
 
@@ -10,7 +11,7 @@ class ScreenshotService {
   static final ScreenshotService instance = ScreenshotService._();
 
   static const MethodChannel _channel =
-      MethodChannel('com.example.secure_banking_app/security');
+      MethodChannel(AppConfig.securityChannel);
 
   int _refCount = 0;
   bool _nativeEnabled = false;

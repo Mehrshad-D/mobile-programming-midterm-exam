@@ -1,1 +1,1 @@
--keep class com.example.secure_banking_app.MainActivity { *; }
+-keep class ir.sharifmp.secure_banking_app.s401105912.MainActivity { *; }

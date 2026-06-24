@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.secure_banking_app"
+    namespace = "ir.sharifmp.secure_banking_app.s401105912"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -19,7 +19,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.secure_banking_app"
+        applicationId = "ir.sharifmp.secure_banking_app.s401105912"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

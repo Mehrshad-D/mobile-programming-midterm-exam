@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
+import '../utils/app_config.dart';
 import '../utils/platform_helper.dart';
 
 class SignatureService {
@@ -9,7 +10,7 @@ class SignatureService {
   static final SignatureService instance = SignatureService._();
 
   static const MethodChannel _channel =
-      MethodChannel('com.example.secure_banking_app/security');
+      MethodChannel(AppConfig.securityChannel);
 
   /// Expected SHA-256 of the signing certificate for release builds.
   /// Copy the hash from Security Report after a release-signed build.

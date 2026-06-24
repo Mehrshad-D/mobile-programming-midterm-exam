@@ -1,4 +1,4 @@
-package com.example.secure_banking_app
+package ir.sharifmp.secure_banking_app.s401105912
 
 import android.content.pm.PackageManager
 import android.os.Build
@@ -18,7 +18,8 @@ import java.security.MessageDigest
 class MainActivity : FlutterFragmentActivity() {
 
     companion object {
-        private const val SECURITY_CHANNEL = "com.example.secure_banking_app/security"
+        private const val SECURITY_CHANNEL =
+            "ir.sharifmp.secure_banking_app.s401105912/security"
     }
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {

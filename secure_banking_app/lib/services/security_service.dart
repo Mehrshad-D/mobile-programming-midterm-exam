@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import '../models/security_report.dart';
+import '../utils/app_config.dart';
 import '../utils/platform_helper.dart';
 import 'biometric_service.dart';
 import 'signature_service.dart';
@@ -14,7 +15,7 @@ class SecurityService {
   static final SecurityService instance = SecurityService._();
 
   static const MethodChannel _channel =
-      MethodChannel('com.example.secure_banking_app/security');
+      MethodChannel(AppConfig.securityChannel);
 
   SecurityReport? _report;
 

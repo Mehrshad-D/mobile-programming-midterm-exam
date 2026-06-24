@@ -243,12 +243,12 @@ Location: `android/app/src/main/AndroidManifest.xml`
 
 ### `MainActivity.kt`
 
-Location: `android/app/src/main/kotlin/com/example/secure_banking_app/MainActivity.kt`
+Location: `android/app/src/main/kotlin/ir/sharifmp/secure_banking_app/s401105912/MainActivity.kt`
 
 | Requirement | Implementation |
 |-------------|----------------|
 | Biometrics | Extends `FlutterFragmentActivity` (not `FlutterActivity`) |
-| Method channel | `com.example.secure_banking_app/security` |
+| Method channel | `ir.sharifmp.secure_banking_app.s401105912/security` |
 | Signature hash | `getAppSignatureSha256` |
 | Root check | `isDeviceRooted` |
 | Debug check | `isDebuggerAttached` |

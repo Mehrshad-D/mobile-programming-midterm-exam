@@ -8,7 +8,7 @@
 PRODUCT_NAME = secure_banking_app
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.secureBankingApp
+PRODUCT_BUNDLE_IDENTIFIER = ir.sharifmp.secure_banking_app.s401105912
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2026 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 Sharif University. All rights reserved.
