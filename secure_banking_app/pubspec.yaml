@@ -1,0 +1,28 @@
+name: secure_banking_app
+description: "Secure Banking App - Educational banking security demo."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  local_auth: ^2.3.0
+  flutter_secure_storage: ^9.2.4
+  device_info_plus: ^11.3.3
+  package_info_plus: ^8.3.0
+  sms_autofill: ^2.4.1
+  crypto: ^3.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true

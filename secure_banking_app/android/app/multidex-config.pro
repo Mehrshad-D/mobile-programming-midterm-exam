@@ -1,0 +1,1 @@
+-keep class com.example.secure_banking_app.MainActivity { *; }
