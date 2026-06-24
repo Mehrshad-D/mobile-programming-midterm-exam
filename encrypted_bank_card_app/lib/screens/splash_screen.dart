@@ -58,69 +58,38 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [AppTheme.primaryBlue, AppTheme.darkBlue],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            'splash/splash.png',
+            fit: BoxFit.cover,
           ),
-        ),
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(24),
-                decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.15),
-                  shape: BoxShape.circle,
+          SafeArea(
+            child: Column(
+              children: [
+                const Spacer(),
+                RotationTransition(
+                  turns: _controller,
+                  child: const Icon(
+                    Icons.sync,
+                    color: Colors.white70,
+                    size: 36,
+                  ),
                 ),
-                child: const Icon(
-                  Icons.credit_card,
-                  size: 72,
-                  color: Colors.white,
+                const SizedBox(height: 16),
+                Text(
+                  _status,
+                  style: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.9),
+                    fontSize: 14,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 24),
-              const Text(
-                'Encrypted Bank Card',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 0.5,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Educational purposes only',
-                style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.8),
-                  fontSize: 14,
-                ),
-              ),
-              const SizedBox(height: 48),
-              RotationTransition(
-                turns: _controller,
-                child: const Icon(
-                  Icons.sync,
-                  color: Colors.white70,
-                  size: 36,
-                ),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                _status,
-                style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.9),
-                  fontSize: 14,
-                ),
-              ),
-            ],
+                const SizedBox(height: 48),
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

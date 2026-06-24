@@ -17,6 +17,18 @@ subprojects {
 }
 subprojects {
     project.evaluationDependsOn(":app")
+    project.buildscript.configurations
+        .matching { it.name == "classpath" }
+        .configureEach {
+            resolutionStrategy.eachDependency {
+                if (requested.group == "com.android.tools.build" &&
+                    requested.name == "gradle"
+                ) {
+                    useVersion("8.11.1")
+                    because("Align plugin AGP with root project")
+                }
+            }
+        }
 }
 
 tasks.register<Delete>("clean") {
