@@ -1,5 +1,6 @@
-import 'package:installed_apps/app_info.dart';
-import 'package:installed_apps/installed_apps.dart';
+import 'dart:io';
+
+import 'package:flutter/services.dart';
 
 class BankingApp {
   final String name;
@@ -16,6 +17,9 @@ class BankingApp {
 }
 
 class InstalledAppsService {
+  static const MethodChannel _channel =
+      MethodChannel('com.example.encrypted_bank_card_app/installed_apps');
+
   static const List<Map<String, String>> _knownBankingApps = [
     {'name': 'آپ', 'package': 'ir.ada.app'},
     {'name': 'تاپ', 'package': 'com.tosan.amata'},
@@ -45,6 +49,8 @@ class InstalledAppsService {
   ];
 
   Future<List<BankingApp>> getInstalledBankingApps() async {
+    if (!Platform.isAndroid) return [];
+
     final installed = <BankingApp>[];
     final seenPackages = <String>{};
 
@@ -54,18 +60,14 @@ class InstalledAppsService {
       seenPackages.add(package);
 
       try {
-        final isInstalled = await InstalledApps.isAppInstalled(package);
-        if (isInstalled == true) {
-          AppInfo? info;
-          try {
-            info = await InstalledApps.getAppInfo(package, BuiltWith.flutter);
-          } catch (_) {}
-
+        final isInstalled = await _isAppInstalled(package);
+        if (isInstalled) {
+          final version = await _getAppVersion(package);
           installed.add(BankingApp(
             name: app['name']!,
             packageName: package,
             isInstalled: true,
-            version: info?.versionName,
+            version: version,
           ));
         }
       } catch (_) {}
@@ -75,11 +77,39 @@ class InstalledAppsService {
   }
 
   Future<bool> launchApp(String packageName) async {
+    if (!Platform.isAndroid) return false;
+
     try {
-      final launched = await InstalledApps.startApp(packageName);
+      final launched = await _channel.invokeMethod<bool>(
+        'startApp',
+        {'package_name': packageName},
+      );
       return launched ?? false;
     } catch (_) {
       return false;
+    }
+  }
+
+  Future<bool> _isAppInstalled(String packageName) async {
+    try {
+      final result = await _channel.invokeMethod<bool>(
+        'isAppInstalled',
+        {'package_name': packageName},
+      );
+      return result ?? false;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  Future<String?> _getAppVersion(String packageName) async {
+    try {
+      return await _channel.invokeMethod<String>(
+        'getAppVersion',
+        {'package_name': packageName},
+      );
+    } catch (_) {
+      return null;
     }
   }
 }
