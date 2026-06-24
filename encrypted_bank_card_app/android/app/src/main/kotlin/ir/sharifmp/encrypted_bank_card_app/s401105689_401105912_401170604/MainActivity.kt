@@ -1,4 +1,4 @@
-package com.example.encrypted_bank_card_app
+package ir.sharifmp.encrypted_bank_card_app.s401105689_401105912_401170604
 
 import android.content.pm.PackageManager
 import android.os.Build
@@ -7,7 +7,8 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterFragmentActivity() {
-    private val channelName = "com.example.encrypted_bank_card_app/installed_apps"
+    private val channelName =
+        "ir.sharifmp.encrypted_bank_card_app.s401105689_401105912_401170604/installed_apps"
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)

@@ -8,7 +8,7 @@
 PRODUCT_NAME = encrypted_bank_card_app
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.encryptedBankCardApp
+PRODUCT_BUNDLE_IDENTIFIER = ir.sharifmp.encrypted_bank_card_app.s401105689_401105912_401170604
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2026 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 ir.sharifmp. All rights reserved.

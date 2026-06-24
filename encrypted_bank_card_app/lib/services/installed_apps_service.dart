@@ -18,7 +18,7 @@ class BankingApp {
 
 class InstalledAppsService {
   static const MethodChannel _channel =
-      MethodChannel('com.example.encrypted_bank_card_app/installed_apps');
+      MethodChannel('ir.sharifmp.encrypted_bank_card_app.s401105689_401105912_401170604/installed_apps');
 
   static const List<Map<String, String>> _knownBankingApps = [
     {'name': 'آپ', 'package': 'ir.ada.app'},

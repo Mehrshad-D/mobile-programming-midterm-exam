@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.encrypted_bank_card_app"
+    namespace = "ir.sharifmp.encrypted_bank_card_app.s401105689_401105912_401170604"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.encrypted_bank_card_app"
+        applicationId = "ir.sharifmp.encrypted_bank_card_app.s401105689_401105912_401170604"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
